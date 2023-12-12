@@ -1,0 +1,94 @@
+SW2#show star
+!
+service password-encryption
+!
+hostname SW2
+!
+no banner motd
+!
+username manager privilege 15 password 8 $1$bJoVec4D$JwOJGPr7YqoExA0GVasdE0
+!
+access-list 1 permit 192.168.99.99
+access-list 1 permit 192.168.10.99
+!
+no service ssh
+!
+service telnet
+no service telnet ipv6
+!
+service http
+!
+clock timezone JST plus 9:00
+!
+no snmp-server ipv6
+snmp-server community univerge 1
+!
+ip domain-lookup
+!
+no service dhcp-server
+!
+no ip multicast-routing
+!
+spanning-tree mode rstp
+!
+no ipv6 mld snooping
+!
+vlan database
+ vlan 10 name DJ
+ vlan 20 name VJ
+ vlan 30 name LED
+ vlan 99 name MG
+ vlan 10,20,30,99 state enable
+!
+interface port1.0.1-1.0.37
+ switchport
+ switchport mode access
+ spanning-tree edgeport
+!
+interface port1.0.38-1.0.39
+ switchport
+ switchport mode trunk
+ switchport trunk allowed vlan add 10,20,30,99
+ spanning-tree edgeport
+!
+interface port1.0.40
+ switchport
+ switchport mode access
+ spanning-tree edgeport
+!
+interface port1.0.41-1.0.42
+ switchport
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree edgeport
+!
+interface port1.0.43-1.0.44
+ switchport
+ switchport mode access
+ switchport access vlan 99
+ spanning-tree edgeport
+!
+interface port1.0.45-1.0.48
+ switchport
+ switchport mode trunk
+ switchport trunk allowed vlan add 10,20,30,99
+ spanning-tree edgeport
+!
+interface vlan20
+ ip address 192.168.20.3/24
+ ip igmp snooping querier
+!
+interface vlan30
+ no ip igmp snooping
+!
+interface vlan99
+ ip address 192.168.99.3/24
+ ip igmp snooping querier
+!
+ntp server 192.168.99.1
+line con 0
+line vty 0 4
+!
+end
+
+SW2

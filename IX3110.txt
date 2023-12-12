@@ -1,0 +1,158 @@
+RT1(config)# show star
+Using 3562 out of 2097152 bytes
+
+! NEC Portable Internetwork Core Operating System Software
+! IX Series IX3100 (magellan-sec) Software, Version 10.5.33, RELEASE SOFTWARE
+! Compiled Jun 15-Thu-2023 20:00:23 JST #2
+! Last updated Dec 07-Thu-2023 21:52:57 JST
+!
+hostname RT1
+timezone +09 00
+!
+username admin password hash 260daDee41EedeF55b36fAD6B01f32@ administrator
+!
+ntp ip enable
+ntp server 210.173.160.27
+ntp server 210.173.160.57
+ntp server 210.173.160.87
+ntp master
+!
+!
+ip ufs-cache enable
+ip route default GigaEthernet0.0
+ip dhcp enable
+!
+!
+!
+!
+snmp-agent ip enable
+snmp-agent ip community univerge
+!
+!
+!
+!
+!
+!
+proxy-dns ip enable
+!
+!
+ssh-server ip enable
+!
+http-redirect mode web-auth
+!
+http-server username admin
+http-server ip enable
+!
+!
+!
+!
+!
+!
+ip dhcp profile dhcp-sv-dj
+  assignable-range 192.168.10.101 192.168.10.200
+  default-gateway 192.168.10.1
+  dns-server 192.168.10.1
+  domain-name dj.intra.technotut.net
+  lease-time 86400
+!
+ip dhcp profile dhcp-sv-vj
+  assignable-range 192.168.20.101 192.168.20.200
+  default-gateway 192.168.20.1
+  dns-server 192.168.20.1
+  domain-name vj.intra.technotut.net
+  lease-time 86400
+!
+ip dhcp profile dhcp-sv-led
+  assignable-range 192.168.11.101 192.168.11.200
+  default-gateway 192.168.11.1
+  dns-server 192.168.11.1
+  domain-name led.intra.technotut.net
+  lease-time 86400
+!
+ip dhcp profile dhcp-sv-mg
+  assignable-range 192.168.99.101 192.168.99.200
+  default-gateway 192.168.99.1
+  dns-server 192.168.99.1
+  domain-name mg.intra.technotut.net
+  lease-time 86400
+!
+router bgp 65000
+  neighbor 192.168.99.99 remote-as 65000
+  address-family ipv4 unicast
+    network 192.168.10.0/24
+    network 192.168.11.0/24
+    network 192.168.20.0/24
+    network 192.168.99.0/24
+!
+device GigaEthernet0
+!
+device GigaEthernet1
+  shutdown
+!
+device GigaEthernet2
+  shutdown
+!
+device GigaEthernet3
+  connector-type sfp
+!
+interface GigaEthernet0.0
+  ip address dhcp receive-default
+  ip tcp adjust-mss auto
+  ip napt enable
+  no shutdown
+!
+interface GigaEthernet1.0
+  no ip address
+  shutdown
+!
+interface GigaEthernet2.0
+  no ip address
+  shutdown
+!
+interface GigaEthernet3.0
+  no ip address
+  shutdown
+!
+interface GigaEthernet3.1
+  encapsulation dot1q 10 tpid 8100
+  auto-connect
+  ip address 192.168.10.1/24
+  ip dhcp binding dhcp-sv-dj
+  web-auth enable
+  http-redirect enable
+  no shutdown
+!
+interface GigaEthernet3.2
+  encapsulation dot1q 20 tpid 8100
+  auto-connect
+  ip address 192.168.20.1/24
+  ip dhcp binding dhcp-sv-vj
+  web-auth enable
+  http-redirect enable
+  no shutdown
+!
+interface GigaEthernet3.3
+  encapsulation dot1q 30 tpid 8100
+  auto-connect
+  ip address 192.168.11.1/24
+  no shutdown
+!
+interface GigaEthernet3.5
+  encapsulation dot1q 15 tpid 8100
+  auto-connect
+  ip address 172.16.0.1/23
+  no shutdown
+!
+interface GigaEthernet3.9
+  encapsulation dot1q 99 tpid 8100
+  auto-connect
+  ip address 192.168.99.1/24
+  ip dhcp binding dhcp-sv-mg
+  no shutdown
+!
+interface Loopback0.0
+  no ip address
+!
+interface Null0.0
+  no ip address
+RT1(config)
