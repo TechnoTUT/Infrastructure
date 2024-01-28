@@ -1,0 +1,27 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "dev.technotut.net",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "ghcr.io/technotut/dev.technotut.net:main",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+		"extensions": [
+		"ms-ceintl.vscode-language-pack-ja",
+		"github.vscode-github-actions",
+		"github.github-vscode-theme",
+		"github.vscode-pull-request-github",
+		"ms-vscode.vscode-typescript-next",
+		"eamodio.gitlens",
+        "hediet.vscode-drawio"
+		],
+		"settings": {
+			"workbench.colorTheme": "GitHub Dark Default"
+		}
+	 }
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000]
+}
