@@ -19,6 +19,7 @@ GL.iNet GL-AR300M1G-EXT (無線LANアクセスポイント)
 ## VLAN
 各VLANは以下のように設定しています。  
 各VLANはルータ(イベント時はNEC UNIVERGE IX3110、部室運用時はCisco 891FJ-K9)でルーティングしています。  
+![vlan](/network/vlan.drawio.svg)
 
 ### VLAN10
 DJ用VLAN  
