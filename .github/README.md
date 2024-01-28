@@ -3,9 +3,9 @@ TechnoTUTのオンプレ環境のうち、公開可能なものをまとめた�
 
 ## 概要図
 イベント時  
-![概要図](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/event.drawio.svg)  
+![概要図](/network/event.drawio.svg)  
 部室運用時  
-![概要図](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/clubroom.drawio.svg)  
+![概要図](/network/clubroom.drawio.svg)
 
 ## 機材一覧
 NEC UNIVERGE IX3110 (ルータ)  
