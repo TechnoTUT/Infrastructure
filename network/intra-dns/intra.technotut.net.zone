@@ -1,0 +1,33 @@
+$TTL 86400
+@   IN  SOA     dns.intra.technotut.net. root.intra.technotut.net. (
+        2024021901  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+        IN NS      dns.intra.technotut.net.
+        IN A       192.168.99.53
+sw3     IN A       192.168.99.1
+sw2     IN A       192.168.99.2
+sw4     IN A       192.168.99.4
+sw5     IN A       192.168.99.5
+sw6     IN A       192.168.99.6
+pj1     IN A       192.168.99.11
+pj2     IN A       192.168.99.12
+kube    IN A       192.168.99.33
+blt     IN A       192.168.99.51
+netboot IN A       192.168.99.52
+dns     IN A       192.168.99.53
+np     IN A       192.168.99.54
+ap      IN A       192.168.99.254
+vj1     IN A       192.168.20.201
+vj2     IN A       192.168.20.202
+vj3     IN A       192.168.20.203
+led1    IN A       192.168.11.201
+led2    IN A       192.168.11.202
+led3    IN A       192.168.11.203
+led4    IN A       192.168.11.204
+led5    IN A       192.168.11.205
+led6    IN A       192.168.11.206
+rt      IN A       192.168.16.1  
