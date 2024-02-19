@@ -20,6 +20,6 @@ dnf install -y snmp_exporter-0.22.0-1.el9.x86_64
 systemctl enable --now prometheus snmp_exporter grafana-server
 firewall-cmd --add-port=3000/tcp --permanent
 firewall-cmd --reload
-\cp -f ./snmp-exporter/snmp.yml /etc/prometheus/snmp.yml
-\cp -f ./prometheus/prometheus.yml /etc/prometheus/prometheus.yml
+\cp -f ./snmp.yml /etc/prometheus/snmp.yml
+\cp -f ./prometheus.yml /etc/prometheus/prometheus.yml
 systemctl restart prometheus snmp_exporter

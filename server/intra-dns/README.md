@@ -5,7 +5,7 @@ IPアドレスとホスト名の対応表は `/network/design/ipaddress.md` に�
 ## Usage
 ```sh
 $ git clone https://github.com/TechnoTUT/Infrastructure.git
-$ cd Infrastructure/network/intra-dns
+$ cd Infrastructure/server/intra-dns
 $ sudo ./install.sh
 ```
 自動で定期的にGitHubを確認し, DNS設定を適用するには以下のように設定します.
@@ -13,6 +13,6 @@ $ sudo ./install.sh
 $ sudo crontab -e
 ```
 ```crontab
-@reboot /path/to/Infrastructure/network/intra-dns/update.sh
-0 0 * * * /path/to/Infrastructure/network/intra-dns/update.sh
+@reboot /path/to/Infrastructure/server/intra-dns/update.sh
+0 0 * * * /path/to/Infrastructure/server/intra-dns/update.sh
 ```

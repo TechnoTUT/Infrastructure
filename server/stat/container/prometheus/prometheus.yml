@@ -23,13 +23,13 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: localhost:9116
+        replacement: snmp-exporter:9116
   - job_name: 'srv_node'
     static_configs:
       - targets: 
         - 192.168.99.99
         - 192.168.99.100
-  -job_name: 'vj_system'
+  - job_name: 'vj_system'
     static_configs:
       - targets: 
         - 192.168.20.100
