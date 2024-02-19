@@ -17,7 +17,6 @@ IP/CIDR: 192.168.10.0/24
 |---|------|-------------|
 | 1 | - | L3SW |
 | 2 | - | L2Switch #2 |
-| 51 | - | LXC (Beat-Link-Trigger) |
 
 ## VLAN20
 IP/CIDR: 192.168.20.0/24
@@ -25,8 +24,7 @@ IP/CIDR: 192.168.20.0/24
 |---|------|-------------|
 | 1 | - | L3SW |
 | - | | |
-| 51 | - | LXC (Beat-Link-Trigger) |
-| 52 | - | VM (LTSP, Diskless System) |
+| 91 | - | VM (LTSP, Diskless System) |
 | 100 | - | 闇鍋PC |
 | - | | |
 | 201 | vj1.intra.technotut.net | NDI-Client01 |
@@ -59,14 +57,16 @@ IP/CIDR: 192.168.99.0/24
 | 5 | sw5.intra.technotut.net | L2Switch #5 |
 | 6 | sw6.intra.technotut.net | L2Switch #6 |
 | - | | |
-| 11 | pj1.intra.technotut.net | Projector01 |
-| 12 | pj2.intra.technotut.net | Projector02 |
+| 11 | blt.intra.technotut.net | LXC (Beat-Link-Trigger) |
+| - | | |
+| 21 | pj1.intra.technotut.net | Projector01 |
+| 22 | pj2.intra.technotut.net | Projector02 |
 | - | | |
 | 33 | kube.intra.technotut.net | VM (Kubernetes) |
 | - | | |
-| 51 | blt.intra.technotut.net | LXC (Beat-Link-Trigger) |
-| 52 | netboot.intra.technotut.net | VM (LTSP, Diskless System) |
-| 53 | dns.intra.technotut.net | LXC (BIND) |
-| 54 | np.intra.technotut.net | LXC (nginx) |
+| 51 | dns.intra.technotut.net | LXC (BIND) |
+| 52 | np.intra.technotut.net | LXC (nginx) |
+| - | | |
+| 91 | netboot.intra.technotut.net | VM (LTSP, Diskless System) |
 | - | | |
 | 254 | ap.intra.technotut.net | Wi-Fi AP #1 |

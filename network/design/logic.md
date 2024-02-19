@@ -26,10 +26,11 @@ Router(config-if)# ip access-list <acl-name> 1 out
 Router(config-if)# ip access-list <acl-name> 2 out
 ```
 #### ルーティング
-- OSPFでL3スイッチと経路情報を交換
+- OSPFでL3スイッチと経路情報を交換  
 https://changineer.info/network/nec_ix/nec_ix_routing_ospf.html
 - BGPでKubernetesクラスタと経路情報を交換  
-  https://changineer.info/network/nec_ix/nec_ix_routing_bgp.html
+  https://changineer.info/network/nec_ix/nec_ix_routing_bgp.html  
+  https://github.com/TechnoTUT/k3s/blob/main/setup/setup.md
   - AS番号: 65000 (iBGP)
   - neighbor: 192.168.99.33
 - OSPF→BGP, BGP→OSPFの経路再配信を設定  
@@ -45,7 +46,7 @@ https://changineer.info/network/nec_ix/nec_ix_routing_ospf.html
 #### ルーティング
 - OSPFでルータと経路情報を交換  
   https://www.allied-telesis.co.jp/support/list/switch/x600/doc/001070d/overview-5.html#sec8
-- HelloパケットがVLAN10, 20, 30, 99に送信されないように設定 (passive-interfaceを設定)
+- HelloパケットがVLAN10, 20, 30, 99に送信されないように設定 (passive-interfaceを設定)  
   https://www.allied-telesis.co.jp/support/list/switch/x600/doc/docs/docs/passive-interface@136OSPF.html
 - 直結経路(connected)→OSPFの経路再配信を設定  
   https://www.allied-telesis.co.jp/support/list/switch/x600/doc/001070d/overview-5.html#sec22
