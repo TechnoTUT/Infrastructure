@@ -35,11 +35,11 @@ spec:
               protocol: TCP
           resources: {}
           volumeMounts:
-            - mountPath: /etc/snmp_exporter/snmp.yml
+            - mountPath: /etc/snmp_exporter/
               name: snmp-exporter-hostpath0
       restartPolicy: Always
       volumes:
         - hostPath:
-            path: /etc/prometheus/snmp.yml
+            path: /etc/prometheus/
           name: snmp-exporter-hostpath0
 status: {}
