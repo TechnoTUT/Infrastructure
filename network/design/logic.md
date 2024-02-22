@@ -10,24 +10,28 @@
 - GE2: shutdown
 - GE3: connecter-type sfp, no shutdown
 #### interface ip address
-- GE0.0: ip address dhcp receive-default
+- GE0.0: ip address 192.168.8.99/24
 - GE3.0: ip address 192.168.16.1/30
 #### ACL
 - 192.168.99.0/24, 10.244.0.0/16, 192.168.20.100/32　のWAN通信を許可, それ以外は拒否
 https://changineer.info/network/nec_ix/nec_ix_firewall_basic.html
 ```shell-session
-Router(config)# ip access-list permit-wan-in permit ip src 192.168.8.1 dest <dest-ip-addr> 
-Router(config)# ip access-list permit-wan-out permit ip src <source-ip-addr> dest 192.168.8.1
+Router(config)# ip access-list permit-wan-in permit ip src any dest 192.168.99.0/24
+Router(config)# ip access-list permit-wan-in permit ip src any dest 10.244.0.0/16
+Router(config)# ip access-list permit-wan-in permit ip src any dest 192.168.20.100/32
+Router(config)# ip access-list permit-wan-out permit ip src 192.168.99.0/24 dest any
+Router(config)# ip access-list permit-wan-out permit ip src 10.244.0.0/16 dest any
+Router(config)# ip access-list permit-wan-out permit ip src 192.168.20.100/32 dest any
 Router(config)# ip access-list implicit-deny deny ip src any dest any
-Router(config)# interface GigaEthernet 0.0
-Router(config-if)# ip access-list <acl-name> 1 in
-Router(config-if)# ip access-list <acl-name> 2 in
-Router(config-if)# ip access-list <acl-name> 1 out
-Router(config-if)# ip access-list <acl-name> 2 out
+Router(config)# interface GigaEthernet0.0
+Router(config-if)# ip access-list permit-wan-in 1 in
+Router(config-if)# ip access-list implicit-deny 2 in
+Router(config-if)# ip access-list permit-wan-out 1 out
+Router(config-if)# ip access-list permit-wan-out 2 out
 ```
 #### ルーティング
 - OSPFでL3スイッチと経路情報を交換  
-https://changineer.info/network/nec_ix/nec_ix_routing_ospf.html
+  https://changineer.info/network/nec_ix/nec_ix_routing_ospf.html
 - BGPでKubernetesクラスタと経路情報を交換  
   https://changineer.info/network/nec_ix/nec_ix_routing_bgp.html  
   https://github.com/TechnoTUT/k3s/blob/main/setup/setup.md
@@ -57,34 +61,30 @@ DJ用VLAN
 192.168.10.0/24  
 DHCP: 192.168.10.101 - 192.168.10.200  
 Gateway: 192.168.10.1  
-DNS: 192.168.10.1  
-lease-time: 10800  
+DNS: 192.168.16.1  
 備考: L2スイッチ(CIsco Catalyst 2960 Plus 24TC-L)をIGMP Snooping Querierに設定, IGMP Snooping有効, アクセスポートのSTP Portfast有効  
 ##### VLAN20
 VJ用VLAN  
 192.168.20.0/24
 DHCP: 192.168.20.101 - 192.168.20.200  
 Gateway: 192.168.20.1  
-DNS: 192.168.20.1  
-lease-time: 86400  
+DNS: 192.168.16.1  
 備考: L3スイッチ(Allied Telesis AT-x600-48Ts)をIGMP Snooping Querierに設定, IGMP Snooping有効, アクセスポートのSTP Portfast有効  
 ##### VLAN30
 LED制御用VLAN
 192.168.11.0/24  
 DHCP: 無効
-Gateway: 192.168.11.1  
-DNS: 192.168.11.1  
 備考: IGMP Snooping無効, アクセスポートのSTP Portfast有効  
 ##### VLAN99
 管理用VLAN  
 192.168.99.0/24  
 DHCP: 192.168.99.101 - 192.168.99.200  
 Gateway: 192.168.99.1  
-DNS: 192.168.99.1  
-lease-time: 3600  
-備考: IGMP Snooping無効, アクセスポートのSTP Portfast有効  
+DNS: 192.168.16.1  
+備考: L3スイッチ(Allied Telesis AT-x600-48Ts)をIGMP Snooping Querierに設定, アクセスポートのSTP Portfast有効  
 #### ポート
-- port1.0.1-36はシャットダウン (未使用)
+- port1.0.1-4をアクセスポート, VLAN IDを20に設定
+- port1.0.5-36はシャットダウン (未使用)
 - port1.0.37, 38をアクセスポート, VLAN IDを99に設定
 - port1.0.43, port1.0.44をLAGに設定
 - port1.0.39-47をトランクポートに設定
@@ -92,10 +92,10 @@ lease-time: 3600
 
 | IF | shut/no shut | VLAN ID | mode | portfast | 備考 |
 | --- | --- | --- | --- | --- | --- |
-| port1.0.1 | shut | - | - | - | 未使用 |
-| port1.0.2 | shut | - | - | - | 未使用 |
-| port1.0.3 | shut | - | - | - | 未使用 |
-| port1.0.4 | shut | - | - | - | 未使用 |
+| port1.0.1 | no shut | 20 | access | enable | |
+| port1.0.2 | no shut | 20 | access | enable | |
+| port1.0.3 | no shut | 20 | access | enable | |
+| port1.0.4 | no shut | 20 | access | enable | |
 | port1.0.5 | shut | - | - | - | 未使用 |
 | port1.0.6 | shut | - | - | - | 未使用 |
 | port1.0.7 | shut | - | - | - | 未使用 |
