@@ -1,94 +1,147 @@
-SW2#show star
+sw3#show star
 !
 service password-encryption
 !
-hostname SW2
+hostname sw3
 !
 no banner motd
 !
 username manager privilege 15 password 8 $1$bJoVec4D$JwOJGPr7YqoExA0GVasdE0
 !
-access-list 1 permit 192.168.99.99
-access-list 1 permit 192.168.10.99
+access-list 1 permit any
 !
-no service ssh
+ssh server v2only
+ssh server allow-users manager
+service ssh ip
 !
-service telnet
-no service telnet ipv6
+no service telnet
 !
-service http
+no service http
 !
-clock timezone JST plus 9:00
+no clock timezone
 !
 no snmp-server ipv6
-snmp-server community univerge 1
+snmp-server community univerge
 !
 ip domain-lookup
 !
-no service dhcp-server
+ip dhcp pool pool10
+ network 192.168.10.0 255.255.255.0
+ range 192.168.10.101 192.168.10.200
+ dns-server 192.168.16.1
+ default-router 192.168.10.1
+ domain-name dj.intra.technotut.net
+ subnet-mask 255.255.255.0
 !
-no ip multicast-routing
+ip dhcp pool pool20
+ network 192.168.20.0 255.255.255.0
+ range 192.168.20.101 192.168.20.200
+ host 192.168.20.203 0021.cccc.b802
+ host 192.168.20.201 f80f.4189.9087
+ host 192.168.20.202 f80f.41b1.6aaa
+ host 192.168.20.100 7085.c23c.6353
+ dns-server 192.168.16.1
+ default-router 192.168.20.1
+ subnet-mask 255.255.255.0
+!
+ip dhcp pool pool99
+ network 192.168.99.0 255.255.255.0
+ range 192.168.99.101 192.168.99.200
+ dns-server 192.168.16.1
+ default-router 192.168.99.1
+ subnet-mask 255.255.255.0
+!
+service dhcp-server
+!
+ip multicast-routing
 !
 spanning-tree mode rstp
 !
 no ipv6 mld snooping
 !
 vlan database
- vlan 10 name DJ
- vlan 20 name VJ
- vlan 30 name LED
- vlan 99 name MG
- vlan 10,20,30,99 state enable
+ vlan 10 name dj
+ vlan 20 name vj
+ vlan 30 name led
+ vlan 99 name server
+ vlan 10,16,20,30,99 state enable
 !
-interface port1.0.1-1.0.37
- switchport
- switchport mode access
- spanning-tree edgeport
-!
-interface port1.0.38-1.0.39
- switchport
- switchport mode trunk
- switchport trunk allowed vlan add 10,20,30,99
- spanning-tree edgeport
-!
-interface port1.0.40
- switchport
- switchport mode access
- spanning-tree edgeport
-!
-interface port1.0.41-1.0.42
+interface port1.0.1-1.0.4
  switchport
  switchport mode access
  switchport access vlan 20
  spanning-tree edgeport
 !
-interface port1.0.43-1.0.44
+interface port1.0.5-1.0.36
+ switchport
+ switchport mode access
+ shutdown
+!
+interface port1.0.37-1.0.38
  switchport
  switchport mode access
  switchport access vlan 99
  spanning-tree edgeport
 !
-interface port1.0.45-1.0.48
+interface port1.0.39-1.0.42
  switchport
  switchport mode trunk
  switchport trunk allowed vlan add 10,20,30,99
- spanning-tree edgeport
+!
+interface port1.0.43-1.0.44
+ switchport
+ switchport mode trunk
+ switchport trunk allowed vlan add 10,20,30,99
+ channel-group 1 mode active
+ lacp timeout long
+!
+interface port1.0.45-1.0.47
+ switchport
+ switchport mode trunk
+ switchport trunk allowed vlan add 10,20,30,99
+!
+interface port1.0.48
+ switchport
+ switchport mode access
+ switchport access vlan 16
+!
+interface po1
+ switchport
+ switchport mode trunk
+ switchport trunk allowed vlan add 10,20,30,99
+!
+interface vlan10
+ ip address 192.168.10.1/24
+!
+interface vlan16
+ ip address 192.168.16.2/30
 !
 interface vlan20
- ip address 192.168.20.3/24
+ ip address 192.168.20.1/24
  ip igmp snooping querier
 !
 interface vlan30
+ ip address 192.168.11.1/24
  no ip igmp snooping
 !
 interface vlan99
- ip address 192.168.99.3/24
+ ip address 192.168.99.1/24
  ip igmp snooping querier
 !
-ntp server 192.168.99.1
+router ospf
+ ospf router-id 0.0.0.3
+ passive-interface vlan10
+ passive-interface vlan20
+ passive-interface vlan30
+ passive-interface vlan99
+ network 192.168.10.0/24 area 0
+ network 192.168.11.0/24 area 0
+ network 192.168.16.0/24 area 0
+ network 192.168.20.0/24 area 0
+ network 192.168.99.0/24 area 0
+!
+ntp server 192.168.16.1
 line con 0
 line vty 0 4
 !
 end
-
-SW2
