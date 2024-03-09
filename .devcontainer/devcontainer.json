@@ -1,9 +1,9 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "dev.technotut.net",
+	"name": "docs.technotut.net",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "ghcr.io/technotut/dev.technotut.net:main",
+	"image": "ghcr.io/technotut/docs.technotut.net:main",
 
 	// Configure tool-specific properties.
 	"customizations": {
