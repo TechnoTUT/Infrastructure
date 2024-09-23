@@ -12,7 +12,6 @@ sidebar_position: 3
 - [DJ Network](/service/dj)
     - [PRO DJ LINK](/service/dj/prodjlink)
     - [Beat-Link-Trigger](/service/dj/beatlinktrigger)
-    - [prolink-tools](/service/dj/prolinktools)
 - [VJ Network](/service/vj)
     - [Ableton Link](/service/vj/abletonlink)
     - [NDI動作環境](/service/vj/ndi)

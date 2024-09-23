@@ -12,7 +12,6 @@ sidebar_position: 1
 - DJ Network
     - PRO DJ LINK
     - Beat-Link-Trigger
-    - prolink-tools
 - VJ Network
     - Ableton Link
     - NDI動作環境
