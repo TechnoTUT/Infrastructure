@@ -22,4 +22,3 @@ GL.iNet GL-AR300M1G-EXT (無線LANアクセスポイント)
 ## VLAN
 DJ, VJ, LED制御, サーバ用の4つのVLANを設定しています。  
 各VLANはルータ(イベント時はAllied Telesis AT-x600-48Ts、部室運用時はCisco 891FJ-K9)でルーティングしています。  
-![vlan](/network/design/vlan.drawio.svg)

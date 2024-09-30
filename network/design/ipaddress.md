@@ -38,13 +38,6 @@ IP/CIDR: 192.168.11.0/24
 | # | FQDN | Description |
 |---|------|-------------|
 | 1 | - | L3SW |
-| - | | |
-| 201 | led1.intra.technotut.net | LED-System01 |
-| 202 | led2.intra.technotut.net | LED-System02 |
-| 203 | led3.intra.technotut.net | LED-System03 |
-| 204 | led4.intra.technotut.net | LED-System04 |
-| 205 | led5.intra.technotut.net | LED-System05 |
-| 206 | led6.intra.technotut.net | LED-System06 |
 
 ## VLAN99
 IP/CIDR: 192.168.99.0/24
@@ -58,15 +51,10 @@ IP/CIDR: 192.168.99.0/24
 | 6 | sw6.intra.technotut.net | L2Switch #6 |
 | - | | |
 | 11 | blt.intra.technotut.net | LXC (Beat-Link-Trigger) |
-| 12 | prolink.intra.technotut.net | LXC (prolink-tools) |
-| - | | |
-| 21 | pj1.intra.technotut.net | Projector01 |
-| 22 | pj2.intra.technotut.net | Projector02 |
 | - | | |
 | 33 | kube.intra.technotut.net | VM (Kubernetes) |
 | - | | |
-| 51 | dns.intra.technotut.net | LXC (BIND) |
-| 52 | np.intra.technotut.net | LXC (nginx) |
+| 51 | dns.intra.technotut.net | VM (IPA) |
 | - | | |
 | 91 | netboot.intra.technotut.net | VM (LTSP, Diskless System) |
 | - | | |
