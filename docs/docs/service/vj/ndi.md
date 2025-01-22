@@ -26,5 +26,6 @@ NDIは、NewTek社が開発した、IPネットワークを介して低遅延で
 Resolume Avenueの場合、標準でNDIの送受信ができます。  
 詳細は、[Resolume AvenueのNDIについて](https://resolume.com/support/ja/NDI_inputs_and_outputs)を参照してください。
 ### OBS Studioの場合
-OBS Studioの場合、[NDI Plugin for OBS Studio](https://github.com/obs-ndi/obs-ndi)をインストールすることで、NDIの送受信ができます。OBSのバージョンと環境にあったものをダウンロードしてください。  
-動作しない場合、NDIのランタイムがインストールされていない可能性があります。
+OBS Studioの場合、[NDI Plugin for OBS Studio](https://github.com/DistroAV/DistroAV)をインストールすることで、NDIの送受信ができます。OBSのバージョンと環境にあったものをダウンロードしてください。  
+動作しない場合、NDIのランタイムがインストールされていない可能性があります。インストール方法は以下をご覧ください。
+https://github.com/DistroAV/DistroAV/wiki/1.-Installation
