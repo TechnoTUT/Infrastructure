@@ -22,6 +22,9 @@
 		}
 	 }
 	},
+	// If you are using podman, enable this setting.
+	// "runArgs": ["--security-opt", "label=disable"],
+	// "remoteUser": "",
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [3000]
 }
