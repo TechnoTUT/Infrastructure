@@ -28,7 +28,7 @@ Linuxコンテナ(LXC)は、ホストOSのカーネルを共有して動作す�
 Linuxコンテナ(LXC)で提供しているOSは、以下の通りです。  
 提供を行っていないOSを利用する必要がある場合は、仮想マシン(VM)を利用してください。  
 - Debian 12 (Bookwarm)
-- Ubuntu 22.04 LTS (Jammy)
+- Ubuntu 24.04 LTS (Jammy)
 - Alma Linux 9
 - CentOS 9 Stream
 :::

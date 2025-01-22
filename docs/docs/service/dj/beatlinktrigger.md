@@ -26,6 +26,86 @@ Beat Link Trigger は以下の機能を提供します。
 
 何らかの不具合が発生した場合は、一度ウィンドウを閉じて再度`start.sh`を実行してください。  
 
+## 開発者向け情報
+
+### 各種機能の起動自動化
+
+[Triggers Global Expressions :: Beat Link Trigger User Guide](https://blt-guide.deepsymmetry.org/beat-link-trigger/0.6.3/Expressions_TriggerGlobal.html)
+
+Global Setup Expression
+
+```clojure
+(set-overlay-background-color (Color. 0 0 0 0))
+(swap! globals assoc :player-status-always-on-top true)
+(swap! globals assoc :player-status-columns 2)
+(when (.isRunning (VirtualCdj/getInstance))
+  (beat-link-trigger.triggers/show-player-status))
+```
+
+Came Online Expression
+
+```clojure
+(triggers/show-player-status)
+(overlay/run-server)
+(beat-link-trigger.carabiner/show-window nil)  
+(beat-link-trigger.carabiner/connect)  
+(beat-link-trigger.carabiner/sync-mode :passive)  
+(beat-link-trigger.carabiner/sync-link true)  
+(beat-link-trigger.carabiner/align-bars true)
+```
+
+### OSCによるBPM情報の取得
+
+[Example: Send OSC message on each beat](https://github.com/Deep-Symmetry/beat-link-trigger/wiki/Example:-Send-OSC-message-on-each-beat)
+
+Master PlayerのExpressionを設定します.
+
+Setup Expression
+
+```clojure
+(swap! locals assoc :restap (osc/osc-client "<IP>" <PORT>))
+```
+
+Beat Expression
+
+```clojure
+(when trigger-active?
+  (osc/osc-send (:restap @locals) "/osc/path" 1.0))
+```
+
+Shutdown Expression
+
+```clojure
+(osc/osc-close (:restap @locals))
+```
+
+### OSCによる曲名情報の取得
+
+Master PlayerのExpressionを設定します.
+
+Setup Expression
+
+```clojure
+(swap! locals assoc :oscblt (osc/osc-client "<IP>" <PORT>)) 
+```
+
+Tracked Update Expression
+
+```clojure
+(let [metadata track-metadata]
+	(swap! locals update-in [:oscmetadata]
+		(fn [old-metadata]
+			(when (not= metadata old-metadata)
+				(osc/osc-send (:oscblt @locals) "/osc/path" track-artist track-title))
+			metadata)))
+```
+
+Shutdown Expression
+
+```clojure
+(osc/osc-close (:oscblt @locals))
+```
+
 ## 環境構築
 新たにDebian GUI環境を構築し、Beat Link Triggerを利用する場合は、以下の手順に従います。  
 事前にDebianのテンプレートでLXCを作成します。  
