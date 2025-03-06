@@ -1,11 +1,12 @@
 ## 物理構成図
 イベント時  
-![概要図](/network/design/event.drawio.svg)  
+![](/network/design/utone.drawio.svg)  
 部室運用時  
-![概要図](/network/design/clubroom.drawio.svg)
+![](/network/design/clubroom.drawio.svg)
 
 ## 論理設計
-[こちら](/network/design/logic.md)を参照してください。
+![](/network/design/utone.logic.drawio.svg)
+![](/network/design/clubroom.logic.drawio.svg)
 
 ## 機材一覧
 NEC UNIVERGE IX3110 (ルータ)  
