@@ -28,7 +28,7 @@
 	// ],
 	// "remoteUser": "",
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"postCreateCommand": "npm install",
+	"postCreateCommand": "cd docs && npm install",
 	"forwardPorts": [
 		3000
 	]
