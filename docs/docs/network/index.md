@@ -40,12 +40,13 @@ GL.iNet GL-AR300M1G-EXT (無線LANアクセスポイント)
 ## ネットワーク設計
 ### 物理構成
 イベント運用時  
-![物理構成図_イベント](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/design/event.drawio.svg)  
+![物理構成図_イベント](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/design/utone.drawio.svg)  
 部室運用時  
 ![物理構成図_部室](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/design/clubroom.drawio.svg)
 
 ### 論理構成
-![論理構成図](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/design/logic.drawio.svg)
+![論理構成図_イベント](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/design/utone.logic.drawio.svg)
+![論理構成図_部室](https://raw.githubusercontent.com/TechnoTUT/Infrastructure/main/network/design/clubroom.logic.drawio.svg)
 
 ### VLAN
 DJ, VJ, LED制御, サーバ用の4つのVLANを設定しています。  
