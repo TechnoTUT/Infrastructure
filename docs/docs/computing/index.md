@@ -1,6 +1,6 @@
 ---
-title: Server
-slug: /server
+title: Computing
+slug: /computing
 sidebar_position: 2
 ---
 [TechnoTUT Network](/) 網内でサーバを運用しています。  

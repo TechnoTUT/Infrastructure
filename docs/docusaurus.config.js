@@ -80,9 +80,9 @@ const config = {
           },
           {
             type: 'docSidebar',
-            sidebarId: 'server',
+            sidebarId: 'computing',
             position: 'left',
-            label: 'Server',
+            label: 'Computing',
           },
           {
             type: 'docSidebar',
