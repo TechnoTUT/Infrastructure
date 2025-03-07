@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -64,12 +64,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/technotut_noc.png',
+      image: 'img/rack.jpg',
       navbar: {
-        title: 'Network Operation Center Team',
+        title: 'NOC Team',
         logo: {
           alt: 'TechnoTUT Logo',
-          src: 'img/logo.png',
+          src: 'img/technotut_logo.svg',
         },
         items: [
           {
@@ -96,8 +96,8 @@ const config = {
                 href: 'https://technotut.net',
               },
               {
-                label: 'Docs',
-                href: 'https://docs.technotut.net',
+                label: 'Blog',
+                href: 'https://blog.technotut.net',
               },
               {
                 label: 'Twitter',
