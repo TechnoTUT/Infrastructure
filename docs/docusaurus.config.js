@@ -45,7 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/TechnoTUT/Infrastructure/tree/dev/',
+            'https://github.com/TechnoTUT/Infrastructure/tree/main/docs/',
         },
         blog: false,
         theme: {
@@ -66,7 +66,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/rack.jpg',
       navbar: {
-        title: 'NOC Team',
+        title: 'NOC',
         logo: {
           alt: 'TechnoTUT Logo',
           src: 'img/technotut_logo.svg',
@@ -74,9 +74,21 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'network',
             position: 'left',
-            label: 'Index',
+            label: 'Network',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'server',
+            position: 'left',
+            label: 'Server',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'service',
+            position: 'left',
+            label: 'Service',
           },
           {
             href: 'https://github.com/TechnoTUT/Infrastructure/',
