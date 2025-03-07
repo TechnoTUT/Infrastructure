@@ -18,8 +18,7 @@ Beat Link Trigger は以下の機能を提供します。
 ## 使用方法
 1. [TechnoTUT Network](/)に接続します。  
 2. Debian GUI環境に接続します。  
-   `blt.intra.technotut.net`または`192.168.99.11`へリモートデスクトップ接続するか、  
-   ブラウザで https://blt.intra.technotut.net/ または https://192.168.99.11/ にアクセスします。
+   `blt.intra.technotut.net`へリモートデスクトップ接続するか、`blt.intra.technotut.net:5901`へVNC接続またはブラウザで https://blt.intra.technotut.net/ にアクセスします。
 3. デスクトップの`start.sh`を実行してBeat Link Triggerを起動します。  
     起動すると、自動で曲情報・波形情報が表示されます。  
    ![Beat Link Trigger](/img/service/beat-link-trigger_trackinfo.jpg)

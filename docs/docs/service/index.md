@@ -1,7 +1,7 @@
 ---
 title: Service
 slug: /service
-sidebar_position: 3
+sidebar_position: 1
 ---
 ## サービス一覧
 ここでは、網内で提供しているサービスを紹介します。  

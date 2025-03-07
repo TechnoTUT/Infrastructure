@@ -3,7 +3,7 @@ title: 監視サーバ
 sidebar_position: 1
 ---
 PrometheusとGrafanaを使用して、Proxmox VE、ネットワーク機器、NDI機器、VJ機器を監視しています。  
-http://10.244.236.31:3000/ にアクセスすることで、Grafanaのダッシュボードを閲覧することができます。
+http://stat.kube.technotut.net/ にアクセスすることで、Grafanaのダッシュボードを閲覧することができます。
 ![Grafana](/img/service/kubernetes_monitoring.jpg)
   
 ## 構築

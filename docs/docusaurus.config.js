@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -45,7 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/TechnoTUT/Infrastructure/tree/dev/',
+            'https://github.com/TechnoTUT/Infrastructure/tree/main/docs/',
         },
         blog: false,
         theme: {
@@ -64,19 +64,31 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/technotut_noc.png',
+      image: 'img/rack.jpg',
       navbar: {
-        title: 'Network Operation Center Team',
+        title: 'NOC',
         logo: {
           alt: 'TechnoTUT Logo',
-          src: 'img/logo.png',
+          src: 'img/technotut_logo.svg',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'network',
             position: 'left',
-            label: 'Index',
+            label: 'Network',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'computing',
+            position: 'left',
+            label: 'Computing',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'service',
+            position: 'left',
+            label: 'Service',
           },
           {
             href: 'https://github.com/TechnoTUT/Infrastructure/',
@@ -96,8 +108,8 @@ const config = {
                 href: 'https://technotut.net',
               },
               {
-                label: 'Docs',
-                href: 'https://docs.technotut.net',
+                label: 'Blog',
+                href: 'https://blog.technotut.net',
               },
               {
                 label: 'Twitter',

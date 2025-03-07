@@ -1,30 +1,35 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "docs.technotut.net",
+	"name": "noc.technotut.net",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "ghcr.io/technotut/docs.technotut.net:main",
-
+	"image": "docker.io/node:22.14",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
-		"extensions": [
-		"ms-ceintl.vscode-language-pack-ja",
-		"github.vscode-github-actions",
-		"github.github-vscode-theme",
-		"github.vscode-pull-request-github",
-		"ms-vscode.vscode-typescript-next",
-		"eamodio.gitlens",
-        "hediet.vscode-drawio"
-		],
-		"settings": {
-			"workbench.colorTheme": "GitHub Dark Default"
+			"extensions": [
+				"ms-ceintl.vscode-language-pack-ja",
+				"github.vscode-github-actions",
+				"github.github-vscode-theme",
+				"github.vscode-pull-request-github",
+				"ms-vscode.vscode-typescript-next",
+				"eamodio.gitlens",
+				"hediet.vscode-drawio"
+			],
+			"settings": {
+				"workbench.colorTheme": "GitHub Dark Default"
+			}
 		}
-	 }
 	},
 	// If you are using podman, enable this setting.
-	// "runArgs": ["--security-opt", "label=disable"],
+	// "runArgs": [
+	//	"--security-opt",
+	//	"label=disable"
+	// ],
 	// "remoteUser": "",
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000]
+	"postCreateCommand": "cd docs && npm install",
+	"forwardPorts": [
+		3000
+	]
 }

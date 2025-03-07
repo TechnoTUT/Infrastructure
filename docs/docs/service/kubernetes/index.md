@@ -35,19 +35,6 @@ Podを削除する場合は、以下のコマンドを使用します。
 kubectl delete -f <your-manifest>.yaml
 ```
 
-### kompose
-Docker Composeファイルがある場合、komposeを使用してKubernetesのマニフェストを作成することができます。  
-```bash
-mkdir manifests && cd manifests
-kompose convert -f ../docker-compose.yml --volumes hostPath
-kubectl apply -f .
-```
-`kubectl apply -f .` で、カレントディレクトリにあるすべてのマニフェストを適用します。  
-  
-Podを削除する場合は、以下のコマンドを使用します。
-```bash
-kubectl delete -f .
-```
 ### ArgoCD
 ArgoCDを使用すれば、GitHubリポジトリに配置されたマニフェストを自動で適用することができます。  
 GitHubリポジトリのマニフェストに更新があれば、自動で適用されます。  
@@ -73,4 +60,4 @@ argocd app sync <app-name>
 `<app-name>` にはアプリケーション名を指定します。
   
 ArgoCDのWebUIにアクセスすることで、マニフェストの適用状況を確認することができます。以下のURLからアクセスできます。  
-https://192.168.99.33:30001/
+https://argocd.kube.technotut.net/
