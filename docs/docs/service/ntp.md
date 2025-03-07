@@ -1,6 +1,6 @@
 ---
 title: NTP
-sidebar_position: 1
+sidebar_position: 3
 ---
 網内ではNTP(時刻同期)サービスを提供しています。  
 NTPサーバのアドレスは`192.168.16.1`です。  

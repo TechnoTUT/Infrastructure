@@ -7,4 +7,4 @@ sidebar_position: 3
 - Master Deckの曲名・アーティスト名  
 - Master Deckのビートごとのメッセージ送信  
 
-Beat Link TriggerのOSCメッセージ送信設定については、[ユーザーマニュアル](https://blt-guide.deepsymmetry.org/beat-link-trigger/7.3.0/Triggers.html)を参照してください。
+Beat Link TriggerのOSCメッセージ送信設定については、[Beat Link Trigger](/service/dj/beatlinktrigger)を参照してください。

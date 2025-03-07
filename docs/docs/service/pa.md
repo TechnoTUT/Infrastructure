@@ -1,6 +1,6 @@
 ---
 title: PA
-sidebar_position: 2
+sidebar_position: 4
 ---
 ## 配線方法
 
