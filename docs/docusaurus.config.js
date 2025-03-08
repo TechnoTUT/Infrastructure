@@ -91,6 +91,12 @@ const config = {
             label: 'Service',
           },
           {
+            type: 'docSidebar',
+            sidebarId: 'web',
+            position: 'left',
+            label: 'Web',
+          },
+          {
             href: 'https://github.com/TechnoTUT/Infrastructure/',
             label: 'GitHub',
             position: 'right',
